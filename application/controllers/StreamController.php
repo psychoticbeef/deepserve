@@ -4,7 +4,6 @@ class IndexController extends Zend_Controller_Action
 {
 
 	private static $_redis = NULL;
-	private $_files_created = array();
 
 	function __construct() {
 		if (self::$_redis === NULL) {
@@ -33,13 +32,7 @@ class IndexController extends Zend_Controller_Action
 	 */
 	private function encode_file() {
 		// $this->_files_created []= $fucking_file;
-	}
-
-	private function delete_files() {
-		foreach ($this->_files_created as $tmp_file) {
-			$result = unlink($file_name);
-			assert($result);
-		}
+		// $dest = DeepServe_File::get_instance()->get_tmp_file();
 	}
 
 	public function streamAction() {
